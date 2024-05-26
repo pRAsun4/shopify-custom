@@ -1,0 +1,14 @@
+{
+  "name": "custom-theme",
+  "version": "0.0.1",
+  "description": "",
+  "author": "prasun mondal",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./style.css -o ./assets/output.css --watch",
+    "watch": "vite build -w",
+    "build": "vite build --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}
