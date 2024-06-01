@@ -38,6 +38,7 @@
       render 'css-globals'
     %}
     {{ 'output.css' | asset_url | stylesheet_tag }}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
 
     {{ content_for_header }}
 
@@ -47,7 +48,8 @@
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
-    
+
+    {%  sections 'header-group' %}
 
     <main id="mainContent" tabindex="-1" class="flex-1 outline-none">
       {{ content_for_layout }}
