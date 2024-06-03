@@ -4,7 +4,9 @@
   "sections": {
     "header": {
       "type": "header",
-      "settings": {}
+      "settings": {
+        "header_logo": "shopify:\/\/shop_images\/header-logo.png"
+      }
     }
   },
   "order": ["header"]

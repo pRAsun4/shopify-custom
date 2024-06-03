@@ -1,12 +1,28 @@
 <header class="header w-full  mx-auto  ">
-    <nav class=" container mx-auto flex justify-between items-center border">
-        <div class="w-auto h-auto ">
-            <h1>DAWN</h1>
-        </div>
-        <div class="icons flex w-auto h-auto">
-            <h1>icon 1</h1>
-            <h1>icon 2</h1>
-        </div>
-    </nav>
+  <nav class=" container mx-auto flex justify-between items-center border">
+    <div class="w-auto h-auto ">
+        {% if section.settings.header_logo != blank %}
+            {{ section.settings.header_logo |  image_url: width: 200 |  image_tag: class:'header-logo-img' }}
+        {% endif %}
+    </div>
+    <div class="icons flex w-auto h-auto">
+      <h1>icon 1</h1>
+      <h1>icon 2</h1>
+    </div>
+  </nav>
 </header>
 
+{% schema %}
+  {
+    "name": "header",
+    "class": "section-header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "header_logo",
+        "label": "header logo"
+      }
+      
+    ]
+  }
+{% endschema %}
