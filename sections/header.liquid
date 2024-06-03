@@ -1,28 +1,53 @@
-<header class="header w-full  mx-auto  ">
-  <nav class=" container mx-auto flex justify-between items-center border">
-    <div class="w-auto h-auto ">
-        {% if section.settings.header_logo != blank %}
-            {{ section.settings.header_logo |  image_url: width: 200 |  image_tag: class:'header-logo-img' }}
-        {% endif %}
-    </div>
-    <div class="icons flex w-auto h-auto">
-      <h1>icon 1</h1>
-      <h1>icon 2</h1>
-    </div>
+
+{% style %}
+  .search-button, .cart-button{
+    border: 1px solid #000000;
+    
+  }
+{% endstyle %}
+
+
+<header class="header w-full p-6 sm:p-8   ">
+  <nav class=" container mx-auto flex justify-between items-center ">
+    <a href="{{ '/' |  within: '' }}" class="underline-none w-auto h-auto ">
+      {% if section.settings.header_logo != blank %}
+        {{ section.settings.header_logo | image_url: width: 200 | image_tag: class: 'header-logo-img lg:block hidden ' }}
+      {% endif %}
+      <span class="w-full h-full block lg:hidden">
+        {%  render 'icon-hambargar' %}
+      </span>
+    </a>
+
+    <ul class="icons flex w-auto h-auto gap-x-[2.5rem]">
+      <li>
+        <button class="w-[3.75rem] h-[3.75rem] rounded-full search-button flex items-center justify-center">
+          {% render 'icon-search'  %}
+        </button>
+      </li>
+      <li>
+        <button class="cart-button flex items-center max-w-[187px] w-full h-[3.75rem] rounded-full px-[7px] py-[10px]  para-pop text-[1.5rem] justify-center">
+          cart - 0
+        </button>
+      </li>
+    </ul>
   </nav>
 </header>
 
 {% schema %}
-  {
-    "name": "header",
-    "class": "section-header",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "header_logo",
-        "label": "header logo"
-      }
-      
-    ]
-  }
+{
+  "name": "header",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "header_logo",
+      "label": "header logo"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "header logo link"
+    }
+  ]
+}
 {% endschema %}
