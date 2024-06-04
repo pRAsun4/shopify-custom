@@ -1,27 +1,39 @@
-
 {% style %}
-  .search-button, .cart-button{
+  .search-button,
+  .cart-button {
     border: 1px solid #000000;
-    
   }
 {% endstyle %}
 
-
-<header class="header w-full p-6 sm:p-8   ">
+<header class="header w-full py-8   ">
   <nav class=" container mx-auto flex justify-between items-center ">
-    <a href="{{ '/' |  within: '' }}" class="underline-none w-auto h-auto ">
+    <a href="{{ '/' |  within: '' }}" class="underline-none w-auto h-auto lg:block hidden">
       {% if section.settings.header_logo != blank %}
-        {{ section.settings.header_logo | image_url: width: 200 | image_tag: class: 'header-logo-img lg:block hidden ' }}
+        {{
+          section.settings.header_logo
+          | image_url: width: 200
+          | image_tag: class: 'header-logo-img  '
+        }}
       {% endif %}
-      <span class="w-full h-full block lg:hidden">
-        {%  render 'icon-hambargar' %}
-      </span>
     </a>
+    <button class=" block lg:hidden">
+      {% render 'icon-hambargar' %}
+    </button>
+
+    <ul class="flex items-center justify-center xl:gap-x-8 gap-x-4 ">
+      {% for link in section.settings.navigation.links %}
+        <li>
+          <a href="{{ link.url }}" class="header-raly">
+            {{ link.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
 
     <ul class="icons flex w-auto h-auto gap-x-[2.5rem]">
       <li>
         <button class="w-[3.75rem] h-[3.75rem] rounded-full search-button flex items-center justify-center">
-          {% render 'icon-search'  %}
+          {% render 'icon-search' %}
         </button>
       </li>
       <li>
@@ -44,9 +56,10 @@
       "label": "header logo"
     },
     {
-      "type": "url",
-      "id": "link_url",
-      "label": "header logo link"
+      "type": "link_list",
+      "id": "navigation",
+      "label": "navigation menu",
+      "default": "main-menu"
     }
   ]
 }
