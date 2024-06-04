@@ -570,6 +570,38 @@ video {
   }
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.right-\[-4px\] {
+  right: -4px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.top-\[-5px\] {
+  top: -5px;
+}
+
+.top-\[-10px\] {
+  top: -10px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -595,8 +627,28 @@ video {
   height: auto;
 }
 
-.h-full {
-  height: 100%;
+.h-12 {
+  height: 3rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-\[10px\] {
+  height: 10px;
+}
+
+.h-\[30px\] {
+  height: 30px;
+}
+
+.h-\[20px\] {
+  height: 20px;
+}
+
+.h-\[1\.5rem\] {
+  height: 1.5rem;
 }
 
 .min-h-screen {
@@ -613,6 +665,26 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.w-\[10px\] {
+  width: 10px;
+}
+
+.w-\[30px\] {
+  width: 30px;
+}
+
+.w-\[20px\] {
+  width: 20px;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 .max-w-\[187px\] {
@@ -657,12 +729,27 @@ video {
        column-gap: 2.5rem;
 }
 
+.gap-x-\[1rem\] {
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+
+.gap-x-\[\.5rem\] {
+  -moz-column-gap: .5rem;
+       column-gap: .5rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
 
 .border {
   border-width: 1px;
+}
+
+.bg-\[\#fc854e\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 133 78 / var(--tw-bg-opacity));
 }
 
 .p-4 {
@@ -703,13 +790,58 @@ video {
   padding-bottom: 10px;
 }
 
+.py-\[1\.5rem\] {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 .text-\[1\.5rem\] {
   font-size: 1.5rem;
+}
+
+.text-\[10px\] {
+  font-size: 10px;
+}
+
+.text-\[\#ffffff\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+@media (min-width: 640px) {
+  .sm\:h-8 {
+    height: 2rem;
+  }
+
+  .sm\:w-12 {
+    width: 3rem;
+  }
+
+  .sm\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:gap-x-\[2\.5rem\] {
+    -moz-column-gap: 2.5rem;
+         column-gap: 2.5rem;
+  }
+
+  .md\:gap-x-\[1\.5rem\] {
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {

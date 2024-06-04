@@ -1,11 +1,8 @@
 {% style %}
-  .search-button,
-  .cart-button {
-    border: 1px solid #000000;
-  }
+  
 {% endstyle %}
 
-<header class="header w-full py-8   ">
+<header class="header w-full sm:py-8 py-[1.5rem]   ">
   <nav class=" container mx-auto flex justify-between items-center ">
     <a href="{{ '/' |  within: '' }}" class="underline-none w-auto h-auto lg:block hidden">
       {% if section.settings.header_logo != blank %}
@@ -20,7 +17,7 @@
       {% render 'icon-hambargar' %}
     </button>
 
-    <ul class="flex items-center justify-center xl:gap-x-8 gap-x-4 ">
+    <ul class="hidden md:flex items-center justify-center xl:gap-x-8 gap-x-4 ">
       {% for link in section.settings.navigation.links %}
         <li>
           <a href="{{ link.url }}" class="header-raly">
@@ -30,15 +27,22 @@
       {% endfor %}
     </ul>
 
-    <ul class="icons flex w-auto h-auto gap-x-[2.5rem]">
+    <ul class="icons flex w-auto h-auto md:gap-x-[1.5rem] gap-x-[.5rem]">
       <li>
-        <button class="w-[3.75rem] h-[3.75rem] rounded-full search-button flex items-center justify-center">
+        <button class="search-button">
           {% render 'icon-search' %}
         </button>
       </li>
       <li>
-        <button class="cart-button flex items-center max-w-[187px] w-full h-[3.75rem] rounded-full px-[7px] py-[10px]  para-pop text-[1.5rem] justify-center">
-          cart - 0
+        <button class="account-button">
+          {% render 'icon-account' %}
+        </button>
+      </li>
+      
+      <li>
+        <button class="cart-button  relative">
+          {%  render 'icon-cart' %}
+          <span class="flex items-center justify-center absolute top-[-10px] right-[-4px] para-pop w-[20px] h-[20px] rounded-full bg-[#fc854e] text-[#ffffff] text-[10px]">01</span>
         </button>
       </li>
     </ul>
