@@ -1,31 +1,19 @@
-{% style %}
-  
-{% endstyle %}
+{{ 'header-style.css' | asset_url | stylesheet_tag }}
 
-<header class="header w-full sm:py-8 py-[1.5rem]   ">
+<header id="topHeader" class="header w-full sm:py-8 py-[1.5rem]   ">
   <nav class=" container mx-auto flex justify-between items-center ">
     <a href="{{ '/' |  within: '' }}" class="underline-none w-auto h-auto lg:block hidden">
       {% if section.settings.header_logo != blank %}
-        {{
-          section.settings.header_logo
-          | image_url: width: 200
-          | image_tag: class: 'header-logo-img  '
-        }}
+        {{ section.settings.header_logo | image_url: width: 200 | image_tag: class: 'header-logo-img  ' }}
       {% endif %}
     </a>
-    <button class=" block lg:hidden">
+    <button id="hamBurgurMenu" class=" block lg:hidden">
       {% render 'icon-hambargar' %}
     </button>
 
-    <ul class="hidden md:flex items-center justify-center xl:gap-x-8 gap-x-4 ">
-      {% for link in section.settings.navigation.links %}
-        <li>
-          <a href="{{ link.url }}" class="header-raly">
-            {{ link.title }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="header-desktop-menu hidden md:flex items-center justify-center xl:gap-x-8 gap-x-4 ">
+      {% render 'header-dropdown' %}
+    </div>
 
     <ul class="icons flex w-auto h-auto md:gap-x-[1.5rem] gap-x-[.5rem]">
       <li>
@@ -34,20 +22,23 @@
         </button>
       </li>
       <li>
-        <button class="account-button">
+        <a href="#" class="account-button">
           {% render 'icon-account' %}
-        </button>
+        </a>
       </li>
-      
       <li>
         <button class="cart-button  relative">
-          {%  render 'icon-cart' %}
-          <span class="flex items-center justify-center absolute top-[-10px] right-[-4px] para-pop w-[20px] h-[20px] rounded-full bg-[#fc854e] text-[#ffffff] text-[10px]">01</span>
+          {% render 'icon-cart' %}
+          <span class="flex items-center justify-center absolute top-[-10px] right-[-4px] para-pop w-[20px] h-[20px] rounded-full bg-[#fc854e] text-[#ffffff] text-[10px]"
+            >01</span
+          >
         </button>
       </li>
     </ul>
   </nav>
+
 </header>
+
 
 {% schema %}
 {

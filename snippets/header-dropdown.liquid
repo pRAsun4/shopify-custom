@@ -1,0 +1,9 @@
+<ul class="drop-down-menu">
+  {% for link in section.settings.navigation.links %}
+    <li>
+      <a href="{{ link.url }}" class="header-raly">
+        {{ link.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

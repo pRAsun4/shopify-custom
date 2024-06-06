@@ -1,0 +1,12 @@
+.header-desktop-menu .drop-down-menu{
+    display: flex;
+    gap: 2rem;
+}
+.sticky-header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    border: 1px solid red;
+}
